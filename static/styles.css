@@ -33,3 +33,9 @@ input {
   padding: 8px;
   font-size: 16px;
 }
+
+.memory {
+    color: #999;
+    font-style: italic;
+    margin-left: 10px;
+}

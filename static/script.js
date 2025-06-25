@@ -17,11 +17,16 @@ async function send() {
             body : JSON.stringify({prompt})
         });
 
-        //Convert response to JSON
+        //Convert waited response to JSON
         const data = await res.json();
 
         //Display chatbot's reply
         chatBox.innerHTML += `<p class="bot"><b>Bot:</b> ${data.response}</p>`;
+        
+        if(data.memory){
+            chatBox.innerHTML += `<p class="memory"><i>${data.memory}</i></p>`;
+        }
+
         chatBox.scrollTop = chatBox.scrollHeight;
     } catch (err) {
         chatBox.innerHTML += `<p class="bot"><b>Bot:</b> Could not connect to server.</b>`;
